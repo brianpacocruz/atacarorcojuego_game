@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://5m7x4a3lfisa"]
+
+[ext_resource type="Script" path="res://powerups/powerup.gd" id="1_yv2i1"]
+[ext_resource type="Texture2D" uid="uid://c1pmpirfryr1y" path="res://assets/powerups/HieloIcon.png" id="2_1ndvw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbidt"]
+size = Vector2(48, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8n3ii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1ndvw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Powerup" type="Area2D" groups=["hielo"]]
+script = ExtResource("1_yv2i1")
+elixir = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="." groups=["hielo"]]
+visible = false
+color = Color(0, 0.698039, 1, 1)
+polygon = PackedVector2Array(-19, -29, -4, -46, 4, -27, 32, -37, 22, -24, 44, -16, 24, -4, 43, 15, 27, 15, 18, 47, 11, 25, -13, 43, -12, 25, -36, 26, -29, 7, -50, -2, -26, -9, -44, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_xbidt")
+
+[node name="InitTimer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8n3ii")

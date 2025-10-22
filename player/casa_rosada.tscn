@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlv2wfn8q7usk"]
+
+[ext_resource type="Script" path="res://player/casa_rosada.gd" id="1_2yjs6"]
+[ext_resource type="Texture2D" uid="uid://bm2sjwea6wmjk" path="res://assets/maps/CasaRosada.png" id="2_bmck7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy8gd"]
+size = Vector2(2082, 119.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6c62"]
+size = Vector2(2078, 119.25)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["casa"]]
+script = ExtResource("1_2yjs6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(358, 1207.63)
+shape = SubResource("RectangleShape2D_uy8gd")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(358, 1207.63)
+shape = SubResource("RectangleShape2D_e6c62")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(360, 1252)
+texture = ExtResource("2_bmck7")
+
+[connection signal="area_entered" from="DamageArea" to="." method="_on_area_2d_area_entered"]

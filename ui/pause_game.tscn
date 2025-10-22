@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://gp86mmxyk8sj"]
+
+[ext_resource type="Script" path="res://ui/pause_game.gd" id="1_12rma"]
+[ext_resource type="Texture2D" uid="uid://dc1sngkhaw8vk" path="res://assets/ui/Pause.png" id="2_7y6dh"]
+[ext_resource type="Theme" uid="uid://c5nploopef4ha" path="res://ui/theme/button_yellow_small.tres" id="4_2s8cs"]
+
+[node name="PauseGame" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_12rma")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7y6dh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -12.0
+offset_right = 163.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_2s8cs")
+text = "Continuar"
+
+[node name="ResetButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_2s8cs")
+text = "Reiniciar"
+
+[node name="HomeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_2s8cs")
+text = "Inicio"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpys08aygdey5"]
+
+[ext_resource type="Script" path="res://weapons/weapon.gd" id="1_oqgaf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8eli"]
+
+[node name="Weapon" type="Area2D"]
+script = ExtResource("1_oqgaf")
+damage = 10
+velocity = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r8eli")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 45)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-2, -6, 2, -6, 2, 6, -2, 6)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b2v3rq0pjdj0h"]
+
+[ext_resource type="FontFile" uid="uid://61qitumv35jp" path="res://assets/fonts/Poppins-Black.ttf" id="1_f1ufc"]
+
+[resource]
+Label/constants/line_spacing = -25
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_f1ufc")

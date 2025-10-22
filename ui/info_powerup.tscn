@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://2pcl7jbjmukx"]
+
+[ext_resource type="Script" path="res://ui/InfoPowerup.gd" id="1_gbqvj"]
+[ext_resource type="Texture2D" uid="uid://bgkqx6elise31" path="res://assets/ui/powerup.png" id="2_c64bw"]
+[ext_resource type="Theme" uid="uid://b2v3rq0pjdj0h" path="res://ui/theme/label_menu_font.tres" id="3_e5rpt"]
+[ext_resource type="Texture2D" uid="uid://bfq6601lpqkju" path="res://assets/powerups/HieloInfo.png" id="3_mfmcc"]
+[ext_resource type="Texture2D" uid="uid://rt14p14w1xj5" path="res://assets/buttons/CloseBtn.png" id="4_ehi6s"]
+[ext_resource type="FontFile" uid="uid://61qitumv35jp" path="res://assets/fonts/Poppins-Black.ttf" id="5_o3pbl"]
+[ext_resource type="Theme" uid="uid://c5nploopef4ha" path="res://ui/theme/button_yellow_small.tres" id="5_o4ws1"]
+
+[node name="InfoPowerup" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_gbqvj")
+
+[node name="Panel2" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c64bw")
+
+[node name="PowerupImage" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.5
+offset_top = -413.0
+offset_right = 204.5
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_mfmcc")
+stretch_mode = 3
+
+[node name="PowerupData" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -152.0
+offset_right = 214.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PowerupName" type="Label" parent="PowerupData"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_e5rpt")
+theme_override_font_sizes/font_size = 50
+text = "bomba "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="PowerupDescription" type="Label" parent="PowerupData"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 26
+text = "Damage 4 asdas dasdasd asd asdas sadasdas "
+autowrap_mode = 3
+
+[node name="PowerupElixir" type="Label" parent="PowerupData"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_o3pbl")
+theme_override_font_sizes/font_size = 31
+text = "COSTO DE ELIXIR: 9"
+horizontal_alignment = 1
+
+[node name="SelectButton" type="Button" parent="PowerupData"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_o4ws1")
+text = "USAR"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 355.0
+offset_right = 49.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_ehi6s")
+
+[connection signal="pressed" from="PowerupData/SelectButton" to="." method="_on_select_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

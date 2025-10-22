@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://brlccpfxsb6d6"]
+
+[ext_resource type="Script" path="res://characters/enemy.gd" id="1_ii4ii"]
+[ext_resource type="SpriteFrames" uid="uid://c8t221uhlfsub" path="res://characters/sprites/fuerte_sprite_level_1.tres" id="2_y4ahw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huck2"]
+size = Vector2(64, 71)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puy4r"]
+bg_color = Color(0.2, 1, 0, 1)
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_ii4ii")
+SPEED = 50
+hp = 200
+points = 2
+enemy_name = 2
+damage = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 14)
+scale = Vector2(0.33, 0.33)
+sprite_frames = ExtResource("2_y4ahw")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_huck2")
+
+[node name="FlagbolTimer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -28.0
+offset_top = -34.0
+offset_right = 28.0
+offset_bottom = -29.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_puy4r")
+step = 1.0
+value = 10.0
+rounded = true
+show_percentage = false
+
+[connection signal="timeout" from="FlagbolTimer" to="." method="_on_flagbol_timer_timeout"]

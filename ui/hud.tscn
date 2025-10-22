@@ -1,0 +1,234 @@
+[gd_scene load_steps=12 format=3 uid="uid://6ll58adf2wgc"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_sl3lv"]
+[ext_resource type="Texture2D" uid="uid://3cl67ym1u6d3" path="res://assets/buttons/Corazon.png" id="3_ivxpb"]
+[ext_resource type="Texture2D" uid="uid://d1useq31xofq" path="res://assets/buttons/PauseBtn.png" id="4_l4l37"]
+[ext_resource type="Texture2D" uid="uid://chf6rmi86yb8i" path="res://assets/powerups/EmptyGame.png" id="4_mudxn"]
+[ext_resource type="FontFile" uid="uid://61qitumv35jp" path="res://assets/fonts/Poppins-Black.ttf" id="4_qspxs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fs58"]
+content_margin_left = 75.0
+content_margin_right = 20.0
+bg_color = Color(0, 0, 0, 0.227451)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Theme" id="Theme_yh3dc"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 36
+Label/fonts/font = ExtResource("4_qspxs")
+Label/styles/normal = SubResource("StyleBoxFlat_6fs58")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32ew0"]
+bg_color = Color(0.2, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgsnn"]
+bg_color = Color(1, 0.188235, 0.188235, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krri3"]
+bg_color = Color(0.2, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je6nx"]
+bg_color = Color(0.145098, 0.729412, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_sl3lv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 47.0
+offset_top = 59.0
+offset_right = -47.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_constants/separation = 18
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_yh3dc")
+text = "3"
+vertical_alignment = 1
+
+[node name="BilleteIcon" type="TextureRect" parent="HBoxContainer/HealthLabel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -34.5
+offset_right = 70.0
+offset_bottom = 34.5
+grow_vertical = 2
+texture = ExtResource("3_ivxpb")
+stretch_mode = 6
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_32ew0")
+max_value = 25.0
+value = 1.0
+rounded = true
+show_percentage = false
+
+[node name="ValueProgressBar" type="Label" parent="HBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -27.0
+offset_right = 52.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_qspxs")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_vgsnn")
+text = "999 / 999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("4_l4l37")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -196.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 18
+
+[node name="ElixirBar" type="ProgressBar" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_krri3")
+max_value = 1.0
+step = 0.1
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="HBoxContainer2/ElixirBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.5
+offset_top = 15.0
+offset_right = 20.5
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_qspxs")
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 1
+
+[node name="PowerupButton" type="TextureButton" parent="HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("4_mudxn")
+
+[node name="PowerupButton2" type="TextureButton" parent="HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("4_mudxn")
+
+[node name="PowerupButton3" type="TextureButton" parent="HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("4_mudxn")
+
+[node name="ElixirTimer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="ElixirLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -214.0
+offset_right = -85.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_qspxs")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_je6nx")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ElixirLabel2" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -214.0
+offset_right = 106.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_qspxs")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_je6nx")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ElixirLabel3" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 253.0
+offset_top = -214.0
+offset_right = 297.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_qspxs")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_je6nx")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/PowerupButton" to="." method="_on_powerup_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/PowerupButton2" to="." method="_on_powerup_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer2/PowerupButton3" to="." method="_on_powerup_button_3_pressed"]
+[connection signal="timeout" from="ElixirTimer" to="." method="_on_elixir_timer_timeout"]

@@ -1,0 +1,140 @@
+[gd_resource type="SpriteFrames" load_steps=31 format=3 uid="uid://cmqqmpn1v15jv"]
+
+[ext_resource type="Texture2D" uid="uid://brvt27ghcqkhw" path="res://assets/enemy/agil/level4/dead_00010.png" id="1_ekky6"]
+[ext_resource type="Texture2D" uid="uid://d1afkedlm34k3" path="res://assets/enemy/agil/level4/dead_00011.png" id="2_n0pud"]
+[ext_resource type="Texture2D" uid="uid://c75ko771lo3x" path="res://assets/enemy/agil/level4/dead_00012.png" id="3_36p76"]
+[ext_resource type="Texture2D" uid="uid://d1b2x2raa7lyk" path="res://assets/enemy/agil/level4/dead_00013.png" id="4_iuj6w"]
+[ext_resource type="Texture2D" uid="uid://bwq61gdvs1kon" path="res://assets/enemy/agil/level4/dead_00014.png" id="5_satkx"]
+[ext_resource type="Texture2D" uid="uid://dto0rppq52fui" path="res://assets/enemy/agil/level4/dead_00015.png" id="6_nk6rm"]
+[ext_resource type="Texture2D" uid="uid://c8sjpuph8plrd" path="res://assets/enemy/agil/level4/dead_00016.png" id="7_kodtw"]
+[ext_resource type="Texture2D" uid="uid://bhx0bydlfm40i" path="res://assets/enemy/agil/level4/dead_00017.png" id="8_7fue8"]
+[ext_resource type="Texture2D" uid="uid://rxdhm8rmkpsi" path="res://assets/enemy/agil/level4/dead_00018.png" id="9_bdfit"]
+[ext_resource type="Texture2D" uid="uid://bunlqkrdno3jy" path="res://assets/enemy/agil/level4/dead_00019.png" id="10_skfcb"]
+[ext_resource type="Texture2D" uid="uid://btlqo21utspfa" path="res://assets/enemy/agil/level4/walk_00030.png" id="11_hxgbp"]
+[ext_resource type="Texture2D" uid="uid://vptq1c3g54sx" path="res://assets/enemy/agil/level4/fight_00020.png" id="11_vthbd"]
+[ext_resource type="Texture2D" uid="uid://b21gq07mqflva" path="res://assets/enemy/agil/level4/fight_00021.png" id="12_e0e5f"]
+[ext_resource type="Texture2D" uid="uid://cqny5v13033nm" path="res://assets/enemy/agil/level4/walk_00031.png" id="12_wooq6"]
+[ext_resource type="Texture2D" uid="uid://udam5xi7pw8i" path="res://assets/enemy/agil/level4/fight_00022.png" id="13_qrykc"]
+[ext_resource type="Texture2D" uid="uid://c4vwms1euf5ox" path="res://assets/enemy/agil/level4/walk_00032.png" id="13_waj4m"]
+[ext_resource type="Texture2D" uid="uid://bnidakjip13vv" path="res://assets/enemy/agil/level4/fight_00023.png" id="14_ea6qa"]
+[ext_resource type="Texture2D" uid="uid://c0w3temc80rcl" path="res://assets/enemy/agil/level4/walk_00033.png" id="14_ssumr"]
+[ext_resource type="Texture2D" uid="uid://dhex7h6ogmw2" path="res://assets/enemy/agil/level4/fight_00024.png" id="15_odkk5"]
+[ext_resource type="Texture2D" uid="uid://wkv63y1yjm8e" path="res://assets/enemy/agil/level4/walk_00034.png" id="15_q5ols"]
+[ext_resource type="Texture2D" uid="uid://bn7k2vxixxk5v" path="res://assets/enemy/agil/level4/walk_00035.png" id="16_0dw4h"]
+[ext_resource type="Texture2D" uid="uid://c3ms0hvlrtjic" path="res://assets/enemy/agil/level4/fight_00025.png" id="16_f7w8r"]
+[ext_resource type="Texture2D" uid="uid://cxk3ohn2c2d8x" path="res://assets/enemy/agil/level4/walk_00036.png" id="17_1hen2"]
+[ext_resource type="Texture2D" uid="uid://d05gp6ym4b62t" path="res://assets/enemy/agil/level4/fight_00026.png" id="17_wugov"]
+[ext_resource type="Texture2D" uid="uid://dwp3juvrsqn3h" path="res://assets/enemy/agil/level4/walk_00037.png" id="18_e56or"]
+[ext_resource type="Texture2D" uid="uid://d4l0p11fmrvpi" path="res://assets/enemy/agil/level4/fight_00027.png" id="18_vttkp"]
+[ext_resource type="Texture2D" uid="uid://dgpsfh8gnlkfu" path="res://assets/enemy/agil/level4/walk_00038.png" id="19_3ebqu"]
+[ext_resource type="Texture2D" uid="uid://bthr7v80p1yvj" path="res://assets/enemy/agil/level4/fight_00028.png" id="19_adpbh"]
+[ext_resource type="Texture2D" uid="uid://dyuh1r47m1tij" path="res://assets/enemy/agil/level4/walk_00039.png" id="20_1kfqc"]
+[ext_resource type="Texture2D" uid="uid://bquvcu4o4ptw2" path="res://assets/enemy/agil/level4/fight_00029.png" id="20_8l1vm"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ekky6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n0pud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_36p76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iuj6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_satkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nk6rm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kodtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7fue8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bdfit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_skfcb")
+}],
+"loop": false,
+"name": &"die",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vthbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e0e5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qrykc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ea6qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_odkk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_f7w8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wugov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vttkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_adpbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_8l1vm")
+}],
+"loop": true,
+"name": &"fight",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_hxgbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wooq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_waj4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ssumr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_q5ols")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0dw4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1hen2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_e56or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3ebqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1kfqc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 30.0
+}]

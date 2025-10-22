@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cssj7dvlxwlh"]
+
+[ext_resource type="FontFile" uid="uid://61qitumv35jp" path="res://assets/fonts/Poppins-Black.ttf" id="1_jqokr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fs58"]
+content_margin_left = 90.0
+content_margin_right = 20.0
+bg_color = Color(1, 0.188235, 0.219608, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[resource]
+Label/font_sizes/font_size = 45
+Label/fonts/font = ExtResource("1_jqokr")
+Label/styles/normal = SubResource("StyleBoxFlat_6fs58")

@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgh1ivcjbm5h7"]
+
+[ext_resource type="Script" path="res://ui/support_game.gd" id="1_jdlhp"]
+[ext_resource type="Theme" uid="uid://b2v3rq0pjdj0h" path="res://ui/theme/label_menu_font.tres" id="1_xnmgk"]
+[ext_resource type="Texture2D" uid="uid://dpea0jlawrg1y" path="res://assets/ui/Comunidad.png" id="2_pfqfn"]
+[ext_resource type="Theme" uid="uid://c5nploopef4ha" path="res://ui/theme/button_yellow_small.tres" id="2_pwodo"]
+[ext_resource type="Texture2D" uid="uid://rt14p14w1xj5" path="res://assets/buttons/CloseBtn.png" id="5_j1nf1"]
+
+[node name="SupportGame" type="CanvasLayer"]
+script = ExtResource("1_jdlhp")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.5
+offset_right = 360.0
+offset_bottom = 640.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pfqfn")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -21.0
+offset_right = 217.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xnmgk")
+text = "Unete a mi discord para contarme sobre bugs o nuevas ideas!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = 255.0
+offset_right = 146.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_pwodo")
+text = "DISCORD"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = 363.0
+offset_right = 47.0
+offset_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("5_j1nf1")
+texture_pressed = ExtResource("5_j1nf1")
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

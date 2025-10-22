@@ -1,0 +1,148 @@
+[gd_scene load_steps=14 format=3 uid="uid://bkh5yeseba8xq"]
+
+[ext_resource type="Script" path="res://scenes/main2.gd" id="1_l78tj"]
+[ext_resource type="PackedScene" uid="uid://brlccpfxsb6d6" path="res://characters/enemy2.tscn" id="2_1q7ea"]
+[ext_resource type="PackedScene" uid="uid://dwhw4mol8uu0h" path="res://player/player.tscn" id="3_ily8d"]
+[ext_resource type="PackedScene" uid="uid://boqqpv8de3xoc" path="res://characters/enemy3.tscn" id="3_xswmn"]
+[ext_resource type="PackedScene" uid="uid://ba002c260syvx" path="res://characters/enemy.tscn" id="4_tuyuy"]
+[ext_resource type="PackedScene" uid="uid://6ll58adf2wgc" path="res://ui/hud.tscn" id="4_uoq81"]
+[ext_resource type="Texture2D" uid="uid://badu2kscdcvam" path="res://assets/maps/Map1.png" id="5_3cme3"]
+[ext_resource type="PackedScene" uid="uid://gp86mmxyk8sj" path="res://ui/pause_game.tscn" id="5_jy45i"]
+[ext_resource type="PackedScene" uid="uid://x63yx8xgf2tb" path="res://ui/game_over.tscn" id="6_wivql"]
+[ext_resource type="PackedScene" uid="uid://dq1x78vplujbg" path="res://ui/game_victory.tscn" id="7_pv0ad"]
+[ext_resource type="PackedScene" uid="uid://dlv2wfn8q7usk" path="res://player/casa_rosada.tscn" id="8_m44bv"]
+[ext_resource type="PackedScene" uid="uid://dyoavnbrhmnxp" path="res://prefebs/joystick.tscn" id="9_u7cg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am87u"]
+size = Vector2(37.5, 3010.75)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_l78tj")
+enemy_scenes = Array[PackedScene]([ExtResource("2_1q7ea"), ExtResource("3_xswmn"), ExtResource("4_tuyuy")])
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_3cme3")
+stretch_mode = 6
+
+[node name="EnemyContainer" type="Node" parent="."]
+
+[node name="ShootContainer" type="Node" parent="."]
+
+[node name="PowerupContainer" type="Node" parent="."]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("3_ily8d")]
+position = Vector2(288, 446)
+
+[node name="PlayerPosition" type="Marker2D" parent="Player"]
+position = Vector2(360, 833)
+
+[node name="HUD" parent="." instance=ExtResource("4_uoq81")]
+
+[node name="Pause" parent="." instance=ExtResource("5_jy45i")]
+visible = false
+
+[node name="GameOver" parent="." instance=ExtResource("6_wivql")]
+visible = false
+
+[node name="GameVictory" parent="." instance=ExtResource("7_pv0ad")]
+process_mode = 3
+visible = false
+
+[node name="CasaContainer" type="AspectRatioContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CasaRosada" parent="CasaContainer" instance=ExtResource("8_m44bv")]
+position = Vector2(-360, -1376)
+
+[node name="SpawnPowerupTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="EnemySpawnTimer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="IncreaseEnemyTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+autostart = true
+
+[node name="IceTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+one_shot = true
+
+[node name="LetalTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="FastShootTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Joystick" parent="." instance=ExtResource("9_u7cg5")]
+offset_top = -431.0
+offset_bottom = -431.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PanelContainer"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PanelContainer/StaticBody2D"]
+position = Vector2(19.75, 444.375)
+shape = SubResource("RectangleShape2D_am87u")
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PanelContainer2"]
+position = Vector2(-63, 9)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PanelContainer2/StaticBody2D"]
+position = Vector2(44, 438)
+shape = SubResource("RectangleShape2D_am87u")
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_top = -61.0
+offset_right = -2.0
+offset_bottom = -61.0
+grow_horizontal = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PanelContainer3"]
+position = Vector2(568, 0)
+rotation = 1.57022
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PanelContainer3/StaticBody2D"]
+position = Vector2(42, 522.007)
+shape = SubResource("RectangleShape2D_am87u")
+
+[connection signal="new_chapter" from="HUD" to="." method="_on_hud_new_chapter"]
+[connection signal="new_higscore" from="HUD" to="." method="_on_hud_new_higscore"]
+[connection signal="powerup1" from="HUD" to="." method="_on_hud_powerup_1"]
+[connection signal="powerup2" from="HUD" to="." method="_on_hud_powerup_2"]
+[connection signal="powerup3" from="HUD" to="." method="_on_hud_powerup_3"]
+[connection signal="hit" from="CasaContainer/CasaRosada" to="." method="_on_casa_rosada_hit"]
+[connection signal="killed" from="CasaContainer/CasaRosada" to="." method="_on_casa_rosada_killed"]
+[connection signal="timeout" from="Timers/EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Timers/IncreaseEnemyTimer" to="." method="_on_increase_enemy_timer_timeout"]
+[connection signal="timeout" from="Timers/IceTimer" to="." method="_on_ice_timer_timeout"]
+[connection signal="timeout" from="Timers/LetalTimer" to="." method="_on_letal_timer_timeout"]
+[connection signal="timeout" from="Timers/FastShootTimer" to="." method="_on_fast_shoot_timer_timeout"]

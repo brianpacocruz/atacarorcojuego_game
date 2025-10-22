@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://rnfya4gjx35u"]
+
+[ext_resource type="Script" path="res://ui/menu_inicio.gd" id="1_ew5it"]
+[ext_resource type="Texture2D" uid="uid://cfom6fo17lcf0" path="res://assets/ui/background.png" id="2_8qr7b"]
+[ext_resource type="Texture2D" uid="uid://bc7ksw00wl6ol" path="res://assets/ui/LevelImg5.png" id="3_41vmw"]
+[ext_resource type="Theme" uid="uid://b2v3rq0pjdj0h" path="res://ui/theme/label_menu_font.tres" id="4_v2bek"]
+[ext_resource type="Theme" uid="uid://mpgarh0bj26p" path="res://ui/theme/button_yellow.tres" id="5_r5xst"]
+[ext_resource type="Texture2D" uid="uid://dm6e8vhwvxemx" path="res://assets/buttons/Arrow.png" id="6_iuoil"]
+[ext_resource type="Texture2D" uid="uid://53r8b4r5jcg3" path="res://assets/buttons/ArrowD.png" id="7_p1tsh"]
+[ext_resource type="Texture2D" uid="uid://cfshwsn8gritk" path="res://assets/ui/LogoInicio.png" id="10_ufqyh"]
+[ext_resource type="Texture2D" uid="uid://ca7m52un5b2mu" path="res://assets/buttons/ChatButton.png" id="10_wu8yn"]
+[ext_resource type="PackedScene" uid="uid://bgh1ivcjbm5h7" path="res://ui/support_game.tscn" id="11_0ia50"]
+
+[node name="MenuInicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ew5it")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8qr7b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -250.0
+offset_right = 255.5
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="PreChapterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("6_iuoil")
+texture_disabled = ExtResource("7_p1tsh")
+
+[node name="LevelImg" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_41vmw")
+stretch_mode = 3
+
+[node name="NextChapterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("6_iuoil")
+texture_disabled = ExtResource("7_p1tsh")
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_v2bek")
+text = "CAPITULO 5"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = 182.0
+offset_right = 176.0
+offset_bottom = 469.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_r5xst")
+text = "JUGAR"
+
+[node name="PowerupButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_r5xst")
+theme_override_font_sizes/font_size = 41
+text = "POWERUPS"
+
+[node name="ChatButton" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("10_wu8yn")
+
+[node name="SupportGame" parent="." instance=ExtResource("11_0ia50")]
+visible = false
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -441.0
+offset_right = 300.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_ufqyh")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PreChapterButton" to="." method="_on_pre_chapter_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NextChapterButton" to="." method="_on_next_chapter_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/PowerupButton" to="." method="_on_powerup_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/ChatButton" to="." method="_on_chat_button_pressed"]

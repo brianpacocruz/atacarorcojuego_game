@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://s45wd6chrrku"]
+
+[ext_resource type="Script" path="res://powerups/BombaArea.gd" id="2_4el5k"]
+[ext_resource type="Texture2D" uid="uid://lon0efgwvk0m" path="res://assets/prefebs/joyknobpng.png" id="2_gohsk"]
+[ext_resource type="Texture2D" uid="uid://d00e82icyotpg" path="res://assets/powerups/BombaIcon.png" id="3_dybwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbidt"]
+size = Vector2(48, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yknvt"]
+radius = 400.045
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8n3ii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dybwc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Powerup" type="Area2D" groups=["bomba"]]
+script = ExtResource("2_4el5k")
+elixir = 2
+powerup_name = "Bomba"
+
+[node name="Polygon2D" type="Polygon2D" parent="." groups=["hielo"]]
+visible = false
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-19, -29, -4, -46, 4, -27, 32, -37, 22, -24, 44, -16, 24, -4, 43, 15, 27, 15, 18, 47, 11, 25, -13, 43, -12, 25, -36, 26, -29, 7, -50, -2, -26, -9, -44, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_xbidt")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AreaDamage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
+shape = SubResource("CircleShape2D_yknvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaDamage"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.196078)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("2_gohsk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8n3ii")
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+[connection signal="area_entered" from="AreaDamage" to="." method="_on_area_damage_area_entered"]

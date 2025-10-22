@@ -1,0 +1,172 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddsuuh63lwdoo"]
+
+[ext_resource type="Script" path="res://ui/powerups_menu.gd" id="1_p1fjl"]
+[ext_resource type="Texture2D" uid="uid://cfom6fo17lcf0" path="res://assets/ui/background.png" id="2_r38il"]
+[ext_resource type="Theme" uid="uid://b2v3rq0pjdj0h" path="res://ui/theme/label_menu_font.tres" id="4_ekxvy"]
+[ext_resource type="Texture2D" uid="uid://bosl8bw1nlt8g" path="res://assets/buttons/AtrasBtn.png" id="5_orhik"]
+[ext_resource type="Texture2D" uid="uid://0sxireca41wp" path="res://assets/powerups/Bomba.png" id="7_iclya"]
+[ext_resource type="Texture2D" uid="uid://cbex0lkwgxljm" path="res://assets/ui/Asset 35.png" id="8_wb1fj"]
+[ext_resource type="Texture2D" uid="uid://c0m6efmh8qpd7" path="res://assets/powerups/Hielo.png" id="9_vj12o"]
+[ext_resource type="Texture2D" uid="uid://d3wu4hml20jg4" path="res://assets/powerups/Velocidad.png" id="10_3enpl"]
+[ext_resource type="Texture2D" uid="uid://b4qqffbrm3deh" path="res://assets/powerups/BalaLetal.png" id="11_mvcpk"]
+[ext_resource type="PackedScene" uid="uid://2pcl7jbjmukx" path="res://ui/info_powerup.tscn" id="12_ama30"]
+[ext_resource type="Texture2D" uid="uid://dybtrdb3n1sg3" path="res://assets/powerups/Pala.png" id="12_g6lfq"]
+
+[node name="PowerupsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p1fjl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r38il")
+
+[node name="HomeButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -147.0
+offset_top = 68.0
+offset_right = -53.0
+offset_bottom = 161.0
+grow_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("5_orhik")
+
+[node name="InfoContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -345.0
+offset_right = 219.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="InfoContainer"]
+layout_mode = 2
+theme = ExtResource("4_ekxvy")
+theme_override_font_sizes/font_size = 76
+text = "powerups"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="DescriptionLabel" type="Label" parent="InfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Elige 3 powerups para la pelea!"
+horizontal_alignment = 1
+
+[node name="AllPowerups" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -147.0
+offset_right = 282.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AllPowerups"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="AllPowerups/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+columns = 3
+
+[node name="PowerupItem" type="VBoxContainer" parent="AllPowerups/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ButtonSkin" type="TextureButton" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("7_iclya")
+
+[node name="Sprite2D" type="Sprite2D" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem/ButtonSkin"]
+visible = false
+position = Vector2(31, 30)
+texture = ExtResource("8_wb1fj")
+
+[node name="PowerupItem2" type="VBoxContainer" parent="AllPowerups/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ButtonSkin" type="TextureButton" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem2"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("9_vj12o")
+
+[node name="Sprite2D" type="Sprite2D" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem2/ButtonSkin"]
+visible = false
+position = Vector2(32, 29)
+texture = ExtResource("8_wb1fj")
+
+[node name="PowerupItem3" type="VBoxContainer" parent="AllPowerups/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ButtonSkin" type="TextureButton" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem3"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("10_3enpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem3/ButtonSkin"]
+visible = false
+position = Vector2(33, 28)
+texture = ExtResource("8_wb1fj")
+
+[node name="PowerupItem4" type="VBoxContainer" parent="AllPowerups/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ButtonSkin" type="TextureButton" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem4"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("11_mvcpk")
+
+[node name="Sprite2D" type="Sprite2D" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem4/ButtonSkin"]
+visible = false
+position = Vector2(37, 28)
+texture = ExtResource("8_wb1fj")
+
+[node name="PowerupItem5" type="VBoxContainer" parent="AllPowerups/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ButtonSkin" type="TextureButton" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem5"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("12_g6lfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="AllPowerups/ScrollContainer/GridContainer/PowerupItem5/ButtonSkin"]
+visible = false
+position = Vector2(34, 28)
+texture = ExtResource("8_wb1fj")
+
+[node name="InfoPowerup" parent="." instance=ExtResource("12_ama30")]
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="AllPowerups/ScrollContainer/GridContainer/PowerupItem/ButtonSkin" to="." method="_on_button_skin_pressed" binds= ["bomba"]]
+[connection signal="pressed" from="AllPowerups/ScrollContainer/GridContainer/PowerupItem2/ButtonSkin" to="." method="_on_button_skin_pressed" binds= ["hielo"]]
+[connection signal="pressed" from="AllPowerups/ScrollContainer/GridContainer/PowerupItem3/ButtonSkin" to="." method="_on_button_skin_pressed" binds= ["fastshoot"]]
+[connection signal="pressed" from="AllPowerups/ScrollContainer/GridContainer/PowerupItem4/ButtonSkin" to="." method="_on_button_skin_pressed" binds= ["balaletal"]]
+[connection signal="pressed" from="AllPowerups/ScrollContainer/GridContainer/PowerupItem5/ButtonSkin" to="." method="_on_button_skin_pressed" binds= ["pala"]]
+[connection signal="powerup_select" from="InfoPowerup" to="." method="_on_info_powerup_powerup_select"]

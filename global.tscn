@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://vgctsq6a10yn"]
+
+[ext_resource type="Script" path="res://global.gd" id="1_xjn1j"]
+[ext_resource type="AudioStream" uid="uid://bmivi3gw5pwxf" path="res://assets/audio/laser.ogg" id="2_4g7c6"]
+[ext_resource type="AudioStream" uid="uid://suhg6x63haqu" path="res://assets/audio/chiptune-dream-tim-beek-chiptune.mp3" id="3_0bfp5"]
+[ext_resource type="AudioStream" uid="uid://d2xjg84deoa36" path="res://assets/audio/explode.wav" id="3_r1ijn"]
+[ext_resource type="AudioStream" uid="uid://bpcg78ns4xdnu" path="res://assets/audio/hit.wav" id="4_8cwol"]
+[ext_resource type="AudioStream" uid="uid://j6j2meltmvbd" path="res://assets/audio/partys-cancelled-roccow-chiptune.mp3" id="4_evtmi"]
+[ext_resource type="AudioStream" uid="uid://cl6kmaywks1jg" path="res://assets/audio/Powerup.wav" id="7_rhi8p"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_xjn1j")
+
+[node name="ShootAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4g7c6")
+volume_db = -5.0
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0bfp5")
+volume_db = -10.0
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_evtmi")
+volume_db = -5.0
+autoplay = true
+
+[node name="NewLevelAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="PlayerDamageAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r1ijn")
+volume_db = -15.0
+
+[node name="EnemyDamageAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8cwol")
+volume_db = -10.0
+
+[node name="RosadaDamageAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
+[node name="PlayerDieAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r1ijn")
+volume_db = -15.0
+
+[node name="EnemyDieAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="ButtonAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="PowerupAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rhi8p")
+volume_db = -10.0
